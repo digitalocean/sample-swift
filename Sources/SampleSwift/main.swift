@@ -2,11 +2,13 @@ import Swifter
 import Dispatch
 
 let server = HttpServer()
+server["/assets/:path"] = shareFilesFromDirectory("assets")
 server["/"] = scopes {
   html {
     body {
       center {
-        h1 { inner = "hello, world!" }
+        img { src = "/assets/sammy.png" }
+        h1 { inner = "Hello from Sammy the Shark!" }
       }
     }
   }
